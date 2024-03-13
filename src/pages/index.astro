@@ -5,6 +5,18 @@ import "../styles/style.css";
 import Button from "../components/Button.astro";
 
 import MainLayout from "../layouts/MainLayout.astro";
+
+import TVShow from "../components/TVShow.astro";
+
+// fetching data
+const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/Tvshows",{
+	method:"SELECT",
+	headers: {
+		apikey:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6ZmpibGV4aHdvaWpnYmdtaXh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTAzNDIxMTQsImV4cCI6MjAyNTkxODExNH0.O7nP4UolRZVDGhGQ3-0RoYhP0SEzLOyHHhp125SwNvw"
+	},
+} ).then((res) => res.json());
+
+console.log(data);
 ---
 
 <MainLayout title="Home">
@@ -12,6 +24,13 @@ import MainLayout from "../layouts/MainLayout.astro";
 					<Button variant="secondary" size="medium">TEXT</Button>
 					<Button variant="secondary" size="large">TEXT</Button>
 	
+					<section class="shows">
+						<!-- map minder om ForEach -->
+						{data.map(show=>{
+							return <TVShow />
+						})}
+					</section>
+
 			<!-- <Card header="Hi World" text="Lorem Ipsum dollar" test="NOGET" /> -->
 
 			<!-- med billede -->
@@ -25,3 +44,13 @@ import MainLayout from "../layouts/MainLayout.astro";
 				<img src="/sandalget.png" alt="Et billede">
 				</Card> -->
 	</MainLayout>
+
+
+	
+curl -X POST 'https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/Tvshows' \
+-H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6ZmpibGV4aHdvaWpnYmdtaXh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTAzNDIxMTQsImV4cCI6MjAyNTkxODExNH0.O7nP4UolRZVDGhGQ3-0RoYhP0SEzLOyHHhp125SwNvw" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6ZmpibGV4aHdvaWpnYmdtaXh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTAzNDIxMTQsImV4cCI6MjAyNTkxODExNH0.O7nP4UolRZVDGhGQ3-0RoYhP0SEzLOyHHhp125SwNvw" \
+-H "Content-Type: application/json" \
+-H "Prefer: return=minimal" \
+-d '{ "some_column": "someValue", "other_column": "otherValue" }'
+          
