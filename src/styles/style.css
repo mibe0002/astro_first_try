@@ -1,0 +1,27 @@
+/* generel styles her */
+:root {
+  /* fonts
+    colors */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* body {
+  background: hotpink;
+}
+
+p {
+  color: white;
+} */
+
+/* typisk grid/flex her også  */
+
+/* .card {
+  background-color: yellow;
+} */

@@ -1,0 +1,33 @@
+---
+// Heroppe kan JS være
+
+// const header = Astro.props.header;
+// const text = Astro.props.text;
+
+const {header, text, test} = Astro.props;
+---
+
+<!-- HTML -->
+<!-- <article>
+	<h2>{header}</h2>
+	<p>{text}</p>
+	<button>{test}</button>
+</article> -->
+
+<article class="card">
+	<h2>{header}</h2>
+	<p>kortere lorem ipsum</p>
+	<slot />
+</article>
+
+<!-- STYLE BLOCK -->
+<!-- Kun for component -->
+<style>
+p {
+	color: royalblue;
+}
+
+.card {
+	background-color: azure;
+}
+</style>
