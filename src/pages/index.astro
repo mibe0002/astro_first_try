@@ -1,32 +1,17 @@
 ---
 import "../styles/style.css";
-import Card from "../components/Card.astro";
-import Navigation from "../components/Navigation.astro";
+// import Card from "../components/Card.astro";
+// import Navigation from "../components/Navigation.astro";
 import Button from "../components/Button.astro";
+
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<Navigation />
-
-		<h1>Astro</h1>
-
-		<!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam corrupti distinctio aliquid inventore maiores beatae autem illum vel iure. Perferendis tempora blanditiis eius tenetur repellendus autem iusto cum ratione maiores!</p> -->
-
-			<main>
+<MainLayout title="Home">
 					<Button variant="primary" size="small">TEXT</Button>	
 					<Button variant="secondary" size="medium">TEXT</Button>
 					<Button variant="secondary" size="large">TEXT</Button>
-			</main>
-
-		<!-- <main class="card"> -->
+	
 			<!-- <Card header="Hi World" text="Lorem Ipsum dollar" test="NOGET" /> -->
 
 			<!-- med billede -->
@@ -39,8 +24,4 @@ import Button from "../components/Button.astro";
 				<button>Klik Her</button>
 				<img src="/sandalget.png" alt="Et billede">
 				</Card> -->
-
-
-		<!-- </main> -->
-	</body>
-</html>
+	</MainLayout>
